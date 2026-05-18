@@ -1,0 +1,1259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Gago — Daily Dissolve. Skincare written for the weather you live in.</title>
+<meta name="description" content="Gago Daily Dissolve — an ultra-soothing daily lotion for hot, humid climates. Formulated in Copenhagen. Made for India. Launching late 2026. Join the waitlist." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<script src="image-slot.js"></script>
+<style>
+  :root {
+    /* Existing brand palette */
+    --arctic:   #F5F2EC;
+    --paper:    #ECE7DB;
+    --stone:    #8A8478;
+    --hairline: #D9D3C5;
+    --ink:      #2A2722;
+    --sage:     #8FA38C;
+    --sage-deep:#6E8170;
+    --sage-pale:#C5CFBE;
+
+    /* New: editorial accent pulled from the product photo */
+    --terra:      #A85839;
+    --terra-deep: #8B4429;
+    --terra-pale: #DEB39B;
+
+    --sans: "DM Sans", system-ui, sans-serif;
+    --mono: "DM Mono", ui-monospace, monospace;
+
+    --gutter: 40px;
+    --col: 1320px;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--ink);
+    background: var(--arctic);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+  }
+  ::selection { background: var(--terra); color: var(--arctic); }
+
+  .wrap { max-width: var(--col); margin: 0 auto; padding: 0 var(--gutter); }
+  .rule { border: 0; border-top: 1px solid var(--hairline); margin: 0; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ───── Type ───── */
+  .mono {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: var(--stone);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terra);
+    font-weight: 400;
+  }
+  h1, h2, h3, h4 { margin: 0; font-weight: 200; letter-spacing: -0.025em; }
+  h1 { font-size: clamp(48px, 6.6vw, 108px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 200; }
+  h2 { font-size: clamp(38px, 4.6vw, 72px); line-height: 1.02; letter-spacing: -0.03em; }
+  h3 { font-size: 26px; line-height: 1.2; font-weight: 300; letter-spacing: -0.01em; }
+  p  { margin: 0; }
+  em { font-style: italic; font-weight: 300; }
+  .lede { font-size: 22px; line-height: 1.45; font-weight: 300; }
+  .body { font-size: 17px; line-height: 1.65; }
+  .stone { color: var(--stone); }
+  .accent { color: var(--terra); }
+  .accent-sage { color: var(--sage-deep); }
+
+  /* ───── Announcement ───── */
+  .announce {
+    background: var(--ink); color: var(--arctic);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 11px var(--gutter);
+  }
+  .announce .accent { color: var(--terra-pale); }
+  .announce .sep { opacity: 0.35; margin: 0 14px; }
+
+  /* ───── Nav ───── */
+  .nav {
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(245, 242, 236, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav-inner {
+    max-width: var(--col); margin: 0 auto; padding: 18px var(--gutter);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .nav-mark {
+    font-size: 26px; font-weight: 300; letter-spacing: -0.025em;
+    display: flex; align-items: baseline; gap: 8px;
+  }
+  .nav-mark .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--terra); display: inline-block; transform: translateY(-2px); }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--stone);
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--terra); color: var(--arctic);
+    padding: 12px 20px;
+    border: 0;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: var(--terra-deep); }
+
+  /* ───── Form ───── */
+  .form {
+    display: flex; gap: 0;
+    border: 1px solid var(--ink);
+    background: var(--arctic);
+    max-width: 480px;
+    transition: border-color 0.15s ease;
+  }
+  .form:focus-within { border-color: var(--terra); }
+  .form input {
+    flex: 1;
+    border: 0; outline: 0;
+    background: transparent;
+    font-family: var(--sans); font-size: 15px;
+    padding: 16px 18px;
+    color: var(--ink);
+  }
+  .form input::placeholder { color: var(--stone); }
+  .form button {
+    border: 0; cursor: pointer;
+    background: var(--ink); color: var(--arctic);
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0 24px;
+    transition: background 0.18s ease;
+  }
+  .form button:hover { background: var(--terra); }
+  .form.on-dark { border-color: var(--arctic); background: transparent; }
+  .form.on-dark input { color: var(--arctic); }
+  .form.on-dark input::placeholder { color: rgba(245,242,236,0.55); }
+  .form.on-dark button { background: var(--arctic); color: var(--ink); }
+  .form.on-dark button:hover { background: var(--terra); color: var(--arctic); }
+  .form.on-sage { border-color: var(--ink); }
+  .form-note {
+    margin-top: 14px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .form-note .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terra);
+    display: inline-block;
+  }
+  .form-success {
+    margin-top: 14px;
+    font-size: 16px;
+    color: var(--ink);
+    display: none;
+    max-width: 420px;
+  }
+  .form-success.on-dark { color: var(--arctic); }
+  .form-success.show { display: block; }
+  .form-success .accent { color: var(--terra); }
+
+  /* ───── HERO ───── */
+  .hero {
+    position: relative;
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    min-height: calc(100vh - 96px);
+    align-items: stretch;
+  }
+  .hero-left {
+    padding: 80px 56px 80px var(--gutter);
+    display: flex; flex-direction: column; justify-content: center;
+    max-width: 760px;
+    margin-left: auto;
+    width: 100%;
+  }
+  .hero-left .crumb {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--stone);
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-left .crumb .badge {
+    background: var(--terra); color: var(--arctic);
+    padding: 5px 10px;
+    letter-spacing: 0.16em;
+  }
+  .hero-left h1 { margin-bottom: 32px; max-width: 14ch; }
+  .hero-left h1 em { color: var(--terra); font-style: italic; }
+  .hero-left .sub {
+    font-size: 20px; line-height: 1.5; color: var(--ink);
+    max-width: 44ch;
+    margin-bottom: 40px;
+  }
+  .hero-left .sub strong { font-weight: 400; }
+  .hero-left .meta-row {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    border-top: 1px solid var(--hairline);
+    padding-top: 24px;
+    max-width: 540px;
+  }
+  .hero-left .meta-row .item .k {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--stone);
+    display: block; margin-bottom: 6px;
+  }
+  .hero-left .meta-row .item .v {
+    font-size: 14px; font-weight: 400; letter-spacing: -0.005em;
+  }
+
+  .hero-right {
+    background: var(--terra);
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: stretch; justify-content: center;
+    min-height: 600px;
+  }
+  .hero-right img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+  .hero-right .corner-tl {
+    position: absolute; top: 24px; left: 24px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(245,242,236,0.75);
+    z-index: 2;
+  }
+  .hero-right .corner-bl {
+    position: absolute; bottom: 24px; left: 24px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(245,242,236,0.75);
+    z-index: 2;
+  }
+  .hero-right .corner-br {
+    position: absolute; bottom: 24px; right: 24px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(245,242,236,0.75);
+    z-index: 2;
+    text-align: right;
+  }
+
+  /* ───── Marquee strip ───── */
+  .marquee {
+    background: var(--ink); color: var(--arctic);
+    overflow: hidden;
+    border-top: 1px solid var(--ink);
+  }
+  .marquee-track {
+    display: flex; gap: 56px;
+    padding: 22px 0;
+    white-space: nowrap;
+    animation: marquee 38s linear infinite;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--arctic);
+  }
+  .marquee-track span { display: inline-flex; align-items: center; gap: 56px; }
+  .marquee-track .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); display: inline-block; }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ───── Section base ───── */
+  section { padding: 140px 0; position: relative; }
+  .section-eyebrow {
+    display: flex; align-items: baseline; gap: 14px;
+    margin-bottom: 40px;
+  }
+  .section-eyebrow .num {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .section-eyebrow .line { flex: 0 0 56px; height: 1px; background: var(--hairline); }
+  .section-eyebrow .ttl {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--terra);
+  }
+
+  /* ───── ORIGIN STORY ───── */
+  .origin { background: var(--arctic); }
+  .origin-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 96px;
+    align-items: start;
+  }
+  .origin h2 { max-width: 14ch; margin-bottom: 40px; }
+  .origin h2 em { color: var(--terra); font-style: italic; }
+  .origin-body p { font-size: 18px; line-height: 1.7; color: var(--ink); max-width: 52ch; }
+  .origin-body p + p { margin-top: 22px; }
+  .origin-body .lead { font-size: 22px; font-weight: 300; color: var(--ink); }
+  .origin-body strong { font-weight: 400; }
+  .origin-body em { color: var(--terra); font-style: italic; }
+
+  .origin-aside {
+    border-left: 1px solid var(--hairline);
+    padding-left: 56px;
+    padding-top: 8px;
+  }
+  .origin-aside .label {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--stone);
+    margin-bottom: 20px;
+  }
+  .origin-aside .pull {
+    font-size: 32px; line-height: 1.15; font-weight: 200;
+    letter-spacing: -0.02em; max-width: 16ch;
+  }
+  .origin-aside .pull em { color: var(--terra); font-style: italic; }
+  .origin-aside .meta {
+    margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--hairline);
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .origin-aside .meta .row {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .origin-aside .meta .row .v { color: var(--ink); }
+
+  /* ───── BANNER (terracotta full-bleed) ───── */
+  .banner {
+    background: var(--terra); color: var(--arctic);
+    padding: 160px 0;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .banner::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(245,242,236,0.06), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(0,0,0,0.08), transparent 40%);
+    pointer-events: none;
+  }
+  .banner .eyebrow { color: var(--terra-pale); position: relative; z-index: 1; margin-bottom: 32px; }
+  .banner h2 {
+    position: relative; z-index: 1;
+    font-size: clamp(48px, 7vw, 132px);
+    line-height: 0.96; font-weight: 200;
+    letter-spacing: -0.04em;
+    max-width: 14ch; margin: 0 auto;
+  }
+  .banner h2 em { color: var(--arctic); font-style: italic; font-weight: 200; }
+  .banner h2 em::after {
+    content: ""; display: block; width: 60%; height: 1px;
+    background: rgba(245,242,236,0.35); margin: 24px auto 0;
+  }
+  .banner .sub {
+    position: relative; z-index: 1;
+    margin-top: 40px;
+    font-size: 17px; line-height: 1.55;
+    color: rgba(245,242,236,0.85);
+    max-width: 48ch; margin-left: auto; margin-right: auto;
+  }
+
+  /* ───── PILLARS ───── */
+  .pillars { background: var(--paper); }
+  .pillars-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 80px; align-items: end; }
+  .pillars-head h2 { max-width: 16ch; }
+  .pillars-head h2 em { color: var(--terra); font-style: italic; }
+  .pillars-head .body { color: var(--stone); max-width: 40ch; font-size: 17px; }
+
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .pillar {
+    padding: 56px 32px 56px 0;
+    border-right: 1px solid var(--hairline);
+    position: relative;
+  }
+  .pillar:last-child { border-right: 0; padding-right: 0; }
+  .pillar:not(:first-child) { padding-left: 32px; }
+  .pillar .n {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--terra); display: block; margin-bottom: 28px;
+  }
+  .pillar h3 {
+    font-size: 36px; font-weight: 200; letter-spacing: -0.025em; line-height: 1.05;
+    margin-bottom: 24px; max-width: 12ch;
+  }
+  .pillar h3 em { color: var(--terra); font-style: italic; }
+  .pillar p {
+    font-size: 15.5px; line-height: 1.6; color: var(--stone);
+    max-width: 32ch;
+  }
+
+  /* ───── PRODUCT MOMENT ───── */
+  .product { background: var(--arctic); padding: 120px 0 0; overflow: hidden; }
+  .product-head {
+    text-align: center;
+    margin-bottom: 80px;
+    padding: 0 var(--gutter);
+  }
+  .product-head .eyebrow { margin-bottom: 24px; }
+  .product-head h2 {
+    max-width: 16ch; margin: 0 auto;
+  }
+  .product-head h2 em { color: var(--terra); font-style: italic; }
+  .product-stage {
+    background: var(--terra);
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+  .product-stage-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 720px;
+    align-items: stretch;
+  }
+  .product-stage-img {
+    background: var(--terra);
+    position: relative; overflow: hidden;
+  }
+  .product-stage-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    object-position: center center;
+  }
+  .product-stage-text {
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+    color: var(--arctic);
+    position: relative;
+  }
+  .product-stage-text .product-name {
+    font-size: clamp(48px, 5.4vw, 88px);
+    font-weight: 200;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    margin-bottom: 32px;
+  }
+  .product-stage-text .product-name em { font-style: italic; }
+  .product-stage-text .tag {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terra-pale);
+    margin-bottom: 28px;
+  }
+  .product-stage-text .body {
+    color: rgba(245,242,236,0.88);
+    font-size: 17px; line-height: 1.6; max-width: 38ch;
+    margin-bottom: 40px;
+  }
+  .product-stage-text .specs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(245,242,236,0.18);
+    max-width: 420px;
+  }
+  .product-stage-text .specs .k {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--terra-pale);
+    display: block; margin-bottom: 6px;
+  }
+  .product-stage-text .specs .v {
+    font-size: 15px; color: var(--arctic); font-weight: 400;
+  }
+
+  /* ───── CREDENTIALS ───── */
+  .creds { background: var(--paper); }
+  .creds-head { margin-bottom: 64px; }
+  .creds-head h2 { max-width: 18ch; }
+  .creds-head h2 em { color: var(--terra); font-style: italic; }
+  .creds-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cred {
+    padding: 48px 32px 48px 0;
+    border-right: 1px solid var(--hairline);
+    display: flex; flex-direction: column; gap: 20px;
+    min-height: 280px;
+  }
+  .cred:last-child { border-right: 0; padding-right: 0; }
+  .cred:not(:first-child) { padding-left: 32px; }
+  .cred .n {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    color: var(--terra);
+  }
+  .cred .v {
+    font-size: 22px; font-weight: 300; letter-spacing: -0.01em; line-height: 1.3;
+    max-width: 26ch;
+  }
+  .cred .where {
+    margin-top: auto;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--stone);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .cred .where .pin { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); }
+
+  /* ───── FOUNDER ───── */
+  .founder { background: var(--ink); color: var(--arctic); }
+  .founder-grid {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 96px;
+    align-items: center;
+  }
+  .founder-image {
+    aspect-ratio: 4 / 5;
+    background: var(--stone);
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-image image-slot { width: 100%; height: 100%; display: block; }
+  .founder-image .tag {
+    position: absolute; top: 20px; left: 20px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: rgba(245,242,236,0.7);
+    z-index: 2;
+  }
+  .founder-text .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--terra-pale);
+    margin-bottom: 28px;
+  }
+  .founder-quote {
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.18; font-weight: 200; letter-spacing: -0.02em;
+    max-width: 22ch;
+  }
+  .founder-quote em { color: var(--terra-pale); font-style: italic; }
+  .founder-quote::before { content: "“"; color: var(--terra); font-size: 1.2em; margin-right: 4px; }
+  .founder-quote::after { content: "”"; color: var(--terra); font-size: 1.2em; margin-left: 2px; }
+  .founder-attr {
+    margin-top: 48px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .founder-attr .name { font-size: 16px; font-weight: 400; letter-spacing: -0.005em; }
+  .founder-attr .role { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terra-pale); margin-top: 4px; }
+  .founder-attr .swatch { width: 4px; height: 44px; background: var(--terra); flex: none; }
+
+  /* ───── VOICES ───── */
+  .voices { background: var(--arctic); }
+  .voices-head { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 64px; }
+  .voices-head h2 { max-width: 16ch; }
+  .voices-head h2 em { color: var(--terra); font-style: italic; }
+  .voices-head .body { color: var(--stone); font-size: 17px; max-width: 38ch; }
+  .voices-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .voice-card {
+    background: var(--paper);
+    padding: 36px 32px;
+    display: flex; flex-direction: column; gap: 28px;
+    min-height: 280px;
+  }
+  .voice-card .stars {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.3em;
+    color: var(--terra);
+  }
+  .voice-card .quote {
+    font-size: 17px; line-height: 1.5; font-weight: 300; letter-spacing: -0.005em;
+    flex: 1;
+  }
+  .voice-card .meta {
+    display: flex; flex-direction: column; gap: 4px;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .voice-card .meta .who { color: var(--ink); }
+
+  /* ───── FAQ ───── */
+  .faq-section { background: var(--paper); }
+  .faq-head { margin-bottom: 64px; }
+  .faq-head h2 { max-width: 16ch; }
+  .faq-head h2 em { color: var(--terra); font-style: italic; }
+  .faq {
+    border-top: 1px solid var(--hairline);
+  }
+  .faq details {
+    border-bottom: 1px solid var(--hairline);
+    padding: 28px 0;
+  }
+  .faq summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 24px;
+    font-size: 24px; font-weight: 300; letter-spacing: -0.015em;
+    transition: color 0.18s ease;
+  }
+  .faq summary:hover { color: var(--terra); }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .toggle {
+    font-family: var(--mono); font-size: 22px; font-weight: 300; color: var(--stone);
+    flex: none;
+    transition: transform 0.25s ease, color 0.18s ease;
+  }
+  .faq details[open] summary { color: var(--terra); }
+  .faq details[open] summary .toggle { transform: rotate(45deg); color: var(--terra); }
+  .faq .answer {
+    margin-top: 18px;
+    font-size: 16px; line-height: 1.65; color: var(--stone);
+    max-width: 64ch;
+  }
+  .faq .answer p + p { margin-top: 14px; }
+
+  /* ───── FINAL CTA ───── */
+  .final-cta {
+    background: var(--terra); color: var(--arctic);
+    padding: 160px 0 140px;
+    position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(245,242,236,0.08), transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(0,0,0,0.10), transparent 50%);
+    pointer-events: none;
+  }
+  .final-cta-inner { position: relative; z-index: 1; }
+  .final-cta .eyebrow { color: var(--terra-pale); margin-bottom: 32px; }
+  .final-cta h2 {
+    font-size: clamp(56px, 7.6vw, 132px);
+    line-height: 0.96; letter-spacing: -0.04em;
+    font-weight: 200;
+    max-width: 14ch;
+  }
+  .final-cta h2 em { font-style: italic; color: var(--arctic); }
+  .final-cta .sub {
+    margin-top: 32px;
+    font-size: 19px; line-height: 1.55;
+    color: rgba(245,242,236,0.88);
+    max-width: 44ch;
+  }
+  .final-cta .form { margin-top: 48px; max-width: 520px; }
+  .final-cta .form-note { color: rgba(245,242,236,0.65); margin-top: 16px; }
+  .final-cta .form-note .dot { background: var(--arctic); }
+  .final-cta .perks {
+    margin-top: 80px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
+    max-width: 920px;
+    border-top: 1px solid rgba(245,242,236,0.2);
+    padding-top: 40px;
+  }
+  .final-cta .perk .k {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--terra-pale);
+  }
+  .final-cta .perk .v {
+    margin-top: 12px; font-size: 17px; font-weight: 400;
+    letter-spacing: -0.005em; line-height: 1.4; max-width: 24ch;
+    color: var(--arctic);
+  }
+
+  /* ───── FOOTER ───── */
+  footer { padding: 100px 0 56px; background: var(--ink); color: var(--arctic); }
+  .foot-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px;
+    align-items: baseline;
+  }
+  .foot-mark { font-size: 64px; font-weight: 200; letter-spacing: -0.04em; line-height: 1; display: flex; align-items: baseline; gap: 8px; }
+  .foot-mark .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--terra); display: inline-block; }
+  .foot-tagline { margin-top: 16px; color: rgba(245,242,236,0.55); font-size: 14px; max-width: 30ch; }
+  .foot-col .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--terra-pale); }
+  .foot-col .v { font-size: 15px; margin-top: 12px; line-height: 1.8; color: rgba(245,242,236,0.85); }
+  .foot-col .v a { display: block; transition: color 0.15s ease; }
+  .foot-col .v a:hover { color: var(--terra); }
+  .foot-bottom {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 80px; padding-top: 24px; border-top: 1px solid rgba(245,242,236,0.15);
+    flex-wrap: wrap; gap: 16px;
+  }
+  .foot-bottom .mono { color: rgba(245,242,236,0.55); }
+  .foot-bottom .mono .accent { color: var(--terra-pale); }
+
+  /* ───── Responsive ───── */
+  @media (max-width: 980px) {
+    :root { --gutter: 24px; }
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-left { padding: 64px 24px; max-width: 100%; }
+    .hero-right { min-height: 80vh; }
+    .hero-left h1 { font-size: clamp(40px, 10vw, 64px); }
+    .hero-left .meta-row { grid-template-columns: 1fr 1fr; }
+    .origin-grid, .pillars-head, .voices-head { grid-template-columns: 1fr; gap: 32px; }
+    .origin-aside { border-left: 0; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 32px; margin-top: 16px; }
+    .pillars-grid, .creds-grid, .voices-grid { grid-template-columns: 1fr; gap: 0; }
+    .pillar, .cred { border-right: 0; border-bottom: 1px solid var(--hairline); padding: 36px 0 !important; }
+    .pillar:last-child, .cred:last-child { border-bottom: 0; }
+    .product-stage-inner { grid-template-columns: 1fr; }
+    .product-stage-img { min-height: 480px; }
+    .product-stage-text { padding: 56px 32px; }
+    .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+    .founder-image { max-width: 320px; }
+    .final-cta .perks { grid-template-columns: 1fr; gap: 28px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    section, .final-cta { padding: 80px 0; }
+    .banner { padding: 96px 0; }
+    .announce { font-size: 10px; letter-spacing: 0.12em; }
+    .announce .sep { display: none; }
+    .announce span { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================== -->
+<!-- ANNOUNCEMENT BAR                                               -->
+<!-- ============================================================== -->
+<div class="announce" data-screen-label="Announce">
+  <span>Pre-launch · Daily Dissolve ships late 2026</span>
+  <span class="sep">·</span>
+  <span>Waitlist now open <span class="accent">— founders' pricing for the first 500</span></span>
+</div>
+
+<!-- ============================================================== -->
+<!-- NAV                                                            -->
+<!-- ============================================================== -->
+<nav class="nav" data-screen-label="Nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-mark">Gago<span class="dot"></span></a>
+    <div class="nav-links">
+      <a href="#origin">Origin</a>
+      <a href="#product">The product</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#waitlist" class="nav-cta">Join waitlist →</a>
+  </div>
+</nav>
+
+<!-- ============================================================== -->
+<!-- HERO                                                           -->
+<!-- ============================================================== -->
+<header class="hero" id="waitlist" data-screen-label="01 Hero">
+  <div class="hero-grid">
+
+    <div class="hero-left">
+      <div class="crumb">
+        <span class="badge">Coming late 2026</span>
+        <span>Designed in Denmark · Made for India</span>
+      </div>
+
+      <h1 style="letter-spacing: -1.8776px; font-size: 68px; font-weight: 300">Baby Lotion for the mother who knows</h1>
+
+      <p class="sub">A daily lotion for newborn skin. Formulated in Copenhagen. Fragrance-free. Every ingredient listed and explained.</p>
+
+      <form class="form hero-form" id="hero-form" novalidate>
+        <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit">Join waitlist →</button>
+      </form>
+      <div class="form-note" id="hero-note">
+        <span class="dot"></span>
+        <span>Founders' pricing for the first 500 · No spam, ever</span>
+      </div>
+      <div class="form-success" id="hero-success">
+        You're on the list. <span class="accent">Welcome.</span> We'll be in touch before the first batch ships.
+      </div>
+
+      <div class="meta-row">
+        <div class="item">
+          <span class="k">Launching</span>
+          <span class="v">Late 2026</span>
+        </div>
+        <div class="item">
+          <span class="k">Volume</span>
+          <span class="v">10 fl oz · 295 ml</span>
+        </div>
+        <div class="item">
+          <span class="k">For</span>
+          <span class="v">Body &amp; face</span>
+        </div>
+        <div class="item">
+          <span class="k">Fragrance</span>
+          <span class="v">None</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <span class="corner-tl">Gago / Daily Dissolve</span>
+      <img src="product-photo.jpg" alt="Gago Daily Dissolve — sage bottle on terracotta" />
+      <span class="corner-bl">Fig. 01 · The Bottle</span>
+      <span class="corner-br">10 fl oz · 295 ml</span>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================================== -->
+<!-- MARQUEE STRIP                                                  -->
+<!-- ============================================================== -->
+<div class="marquee" data-screen-label="Marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Designed in Denmark<i class="dot"></i>Made for India<i class="dot"></i>For body and face<i class="dot"></i>Fragrance free<i class="dot"></i>Built for the heat<i class="dot"></i>Suitable from day one<i class="dot"></i>Late 2026<i class="dot"></i>Founders' pricing for the first 500<i class="dot"></i></span>
+    <span>Designed in Denmark<i class="dot"></i>Made for India<i class="dot"></i>For body and face<i class="dot"></i>Fragrance free<i class="dot"></i>Built for the heat<i class="dot"></i>Suitable from day one<i class="dot"></i>Late 2026<i class="dot"></i>Founders' pricing for the first 500<i class="dot"></i></span>
+  </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- ORIGIN / STORY                                                 -->
+<!-- ============================================================== -->
+<section class="origin" id="origin" data-screen-label="02 Origin">
+  <div class="wrap">
+    <div class="section-eyebrow">
+      <span class="num">01</span>
+      <span class="line"></span>
+      <span class="ttl">Origin · Delhi, May</span>
+    </div>
+
+    <div class="origin-grid">
+      <div>
+        <h2>The Indian mother who knows her ingredient list</h2>
+        <div class="origin-body">
+          <p class="lead">She loves her skincare routine. She reads the labels and when she became a mother, she didn't lower that standard. She carried it forward.</p>
+          <p>Gago began with one of those mothers. Our founder, Pragya, spent a year carrying around back the same Danish lotion from Copenhagen for her daughter — cleanly made, beautifully formulated, the kind of thing you don't think twice about in a Stockholm October.</p>
+          <p>
+            Then May arrived in Delhi. <em>The same lotion she had trusted all winter suddenly sat heavy</em> — too rich for 38 degrees, written for a climate seven thousand kilometres away. The formula wasn't wrong. It was written for the wrong weather.
+          </p>
+        </div>
+      </div>
+
+      <aside class="origin-aside">
+        <div class="label">Pull-quote</div>
+        <p class="pull">
+          The same Danish <em>discipline</em>, rewritten for Indian skin, Indian heat, Indian humidity.
+        </p>
+        <div class="meta">
+          <div class="row"><span>Formulated</span><span class="v">Copenhagen, DK</span></div>
+          <div class="row"><span>Made</span><span class="v">Bangalore, IN</span></div>
+          <div class="row"><span>Launching</span><span class="v">Late 2026</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- BANNER · Terracotta full-bleed                                 -->
+<!-- ============================================================== -->
+<section class="banner" data-screen-label="03 Banner">
+  <p class="eyebrow">Skincare for the weather you live in</p>
+  <h2>Built for the heat. <em>Designed to disappear.</em></h2>
+  <p class="sub">A lotion that absorbs in seconds. Sits on no one. Suits every skin in the house — from the smallest one upward.</p>
+</section>
+
+<!-- ============================================================== -->
+<!-- PILLARS                                                        -->
+<!-- ============================================================== -->
+<section class="pillars" data-screen-label="04 Pillars">
+  <div class="wrap">
+    <div class="section-eyebrow">
+      <span class="num">02</span>
+      <span class="line"></span>
+      <span class="ttl">Three non-negotiables</span>
+    </div>
+
+    <div class="pillars-head">
+      <h2>Less, when less is the <em>rigorous</em> answer.</h2>
+      <p class="body">
+        We don't believe in launching a range before we've earned it. One bottle. One promise. Three things we will not compromise on.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+      <article class="pillar">
+        <span class="n">01 / Discipline</span>
+        <h3>Every ingredient, <em>by name.</em></h3>
+        <p>Each component is chosen for a reason — and we will tell you what it does. If something is in this bottle, we believe in it. If we don't, it isn't.</p>
+      </article>
+      <article class="pillar">
+        <span class="n">02 / Restraint</span>
+        <h3>Made for the <em>weather</em>, not the shelf.</h3>
+        <p>Formulated for 38°C Delhi summers, not 12°C Stockholm autumns. Stable to 40°C, light to the touch, fragrance-free.</p>
+      </article>
+      <article class="pillar">
+        <span class="n">03 / Trust</span>
+        <h3>Reviewed in <em>India.</em></h3>
+        <p>Before each batch leaves the line in Bangalore, an Indian pediatric dermatologist reviews it. Indian skin, Indian climate, Indian standards.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- PRODUCT MOMENT                                                 -->
+<!-- ============================================================== -->
+<section class="product" id="product" data-screen-label="05 Product">
+  <div class="product-head">
+    <p class="eyebrow">The first bottle</p>
+    <h2>Daily Dissolve. <em>One lotion. Whole family.</em></h2>
+  </div>
+
+  <div class="product-stage">
+    <div class="product-stage-inner">
+      <div class="product-stage-img">
+        <img src="product-photo.jpg" alt="Gago Daily Dissolve — the bottle" />
+      </div>
+      <div class="product-stage-text">
+        <span class="tag">Pre-launch · First batch</span>
+        <h3 class="product-name">Daily<br/>Dissolve.</h3>
+        <p class="body">
+          Ultra-soothing daily lotion for hot and humid climates. Formulated to disappear into skin — not sit on top of it. For body, face, and the smallest skin in the house.
+        </p>
+        <div class="specs">
+          <div>
+            <span class="k">Suitable from</span>
+            <span class="v">Day one</span>
+          </div>
+          <div>
+            <span class="k">Fragrance</span>
+            <span class="v">None</span>
+          </div>
+          <div>
+            <span class="k">Volume</span>
+            <span class="v">10 fl oz · 295 ml</span>
+          </div>
+          <div>
+            <span class="k">Texture</span>
+            <span class="v">Featherweight</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- CREDENTIALS                                                    -->
+<!-- ============================================================== -->
+<section class="creds" id="credentials" data-screen-label="06 Credentials">
+  <div class="wrap">
+    <div class="section-eyebrow">
+      <span class="num">03</span>
+      <span class="line"></span>
+      <span class="ttl">Credentials</span>
+    </div>
+
+    <div class="creds-head">
+      <h2>Three people you'd trust your own <em>skin</em> to.</h2>
+    </div>
+
+    <div class="creds-grid">
+      <article class="cred">
+        <span class="n">01 / Formulator</span>
+        <p class="v">A Danish cosmetic chemist with twenty years in barrier-friendly skincare.</p>
+        <span class="where"><i class="pin"></i>Copenhagen, DK</span>
+      </article>
+      <article class="cred">
+        <span class="n">02 / Reviewer</span>
+        <p class="v">An Indian pediatric dermatologist who reviews every batch before it ships.</p>
+        <span class="where"><i class="pin"></i>Mumbai, IN</span>
+      </article>
+      <article class="cred">
+        <span class="n">03 / Maker</span>
+        <p class="v">GMP-certified facility. Small, lot-traceable batches.</p>
+        <span class="where"><i class="pin"></i>Bangalore, IN</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- FOUNDER                                                        -->
+<!-- ============================================================== -->
+<section class="founder" data-screen-label="07 Founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-image">
+        <span class="tag">Pragya · Delhi</span>
+        <image-slot
+          id="founder-photo-v2"
+          shape="rect"
+          placeholder="Drop a portrait of Pragya"
+          style="display:block; width:100%; height:100%; background: var(--stone);">
+        </image-slot>
+      </div>
+      <div class="founder-text">
+        <div class="label">A note from the founder</div>
+        <p class="founder-quote">
+          I started Gago in a Delhi bathroom in May, with a Danish lotion that no longer made sense in the heat. I wanted the <em>same discipline</em>, rewritten for the weather my daughter was growing up in. So we built it.
+        </p>
+        <div class="founder-attr">
+          <div class="swatch"></div>
+          <div>
+            <div class="name">Pragya Mehta</div>
+            <div class="role">Founder · Delhi / Copenhagen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- VOICES                                                         -->
+<!-- ============================================================== -->
+<section class="voices" data-screen-label="08 Voices">
+  <div class="wrap">
+    <div class="section-eyebrow">
+      <span class="num">04</span>
+      <span class="line"></span>
+      <span class="ttl">From the waitlist</span>
+    </div>
+
+    <div class="voices-head">
+      <h2>The people we're <em>building</em> this for.</h2>
+      <p class="body">Early notes from mothers, dermatologists and fellow founders we've shown the formula to.</p>
+    </div>
+
+    <div class="voices-grid">
+      <article class="voice-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"I have been carrying baby lotion back from Copenhagen for two years. A clean version, made in Bangalore, written for Indian weather — that is exactly the brand I was waiting for."</p>
+        <div class="meta">
+          <span class="who">Priya R.</span>
+          <span>Mumbai · Mother of one</span>
+        </div>
+      </article>
+      <article class="voice-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"The first brand that doesn't speak to me like I haven't done any reading. I appreciate the restraint. Happy to wait."</p>
+        <div class="meta">
+          <span class="who">Tanvi S.</span>
+          <span>Bangalore · Mother of two</span>
+        </div>
+      </article>
+      <article class="voice-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="quote">"My dermatologist friend forwarded me the formula. She said this is what she would have written. That was enough for me."</p>
+        <div class="meta">
+          <span class="who">Maya K.</span>
+          <span>Delhi · Expecting</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- FAQ                                                            -->
+<!-- ============================================================== -->
+<section class="faq-section" id="faq" data-screen-label="09 FAQ">
+  <div class="wrap">
+    <div class="section-eyebrow">
+      <span class="num">05</span>
+      <span class="line"></span>
+      <span class="ttl">Questions</span>
+    </div>
+
+    <div class="faq-head">
+      <h2>Ask us anything. <em>We'll tell you.</em></h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>When does Gago launch?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>Daily Dissolve ships in late 2026. Everyone on the waitlist gets 48-hour early access before public launch, and the first 500 sign-ups get founders' pricing on their first bottle.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Who is it for?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>Daily Dissolve is a single lotion for body and face. Light enough for newborn skin from day one, rigorous enough for the mother who reads ingredient lists. One bottle for the whole household.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why "designed in Denmark, made for India"?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>The formula was developed in Copenhagen by a Danish cosmetic chemist with twenty years in barrier-friendly skincare, then tested and adapted for Indian climate and skin. It is manufactured to GMP standards in small, lot-traceable batches in Bangalore.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Why only one product?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>We don't launch ranges before we've earned them. One bottle, every day, for the whole family. When we add to it, it will be because something specific is missing — not because the line needs filling.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What's on the waitlist?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>Three things. A 48-hour early-access window before public launch. Founders' pricing on your first bottle for the first 500 sign-ups. And one short, useful update from us each month between now and launch — nothing else.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How much will it cost?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>Public pricing will be announced closer to launch. Founders' pricing is meaningfully lower and locked in for waitlist sign-ups #001–500. You'll know your number the moment you join.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Where will you ship?<span class="toggle">+</span></summary>
+        <div class="answer">
+          <p>India first, at launch. International (UAE, Singapore, UK) shortly after. The waitlist is open globally — we'll tell you the moment we can ship to your address.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- FINAL CTA                                                      -->
+<!-- ============================================================== -->
+<section class="final-cta" data-screen-label="10 Final CTA">
+  <div class="wrap final-cta-inner">
+    <p class="eyebrow">Join the waitlist</p>
+    <h2>Be one of the first <em>five hundred.</em></h2>
+    <p class="sub">
+      Founders' pricing on your first bottle. 48-hour early access before public launch. One short note from us each month — nothing else.
+    </p>
+
+    <form class="form on-dark" id="final-form" novalidate>
+      <input type="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+      <button type="submit">Join waitlist →</button>
+    </form>
+    <div class="form-note" id="final-note">
+      <span class="dot"></span>
+      <span>Spot <strong id="spot-num">#1,248</strong> waiting · Of 500 founders' spots</span>
+    </div>
+    <div class="form-success on-dark" id="final-success">
+      You're in. <span class="accent">Welcome.</span> Check your inbox for your waitlist number.
+    </div>
+
+    <div class="perks">
+      <div class="perk">
+        <div class="k">01 · Founders' pricing</div>
+        <div class="v">Locked-in price for sign-ups 1–500.</div>
+      </div>
+      <div class="perk">
+        <div class="k">02 · 48h early access</div>
+        <div class="v">Order before public launch, late 2026.</div>
+      </div>
+      <div class="perk">
+        <div class="k">03 · One note a month</div>
+        <div class="v">Updates from the lab and the line. No noise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== -->
+<!-- FOOTER                                                         -->
+<!-- ============================================================== -->
+<footer data-screen-label="Footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-mark">Gago<span class="dot"></span></div>
+        <p class="foot-tagline">Skincare written for the weather you live in.</p>
+      </div>
+      <div class="foot-col">
+        <div class="k">Brand</div>
+        <div class="v">
+          <a href="#origin">Origin</a>
+          <a href="#product">Daily Dissolve</a>
+          <a href="#credentials">Credentials</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="k">Contact</div>
+        <div class="v">
+          <a href="mailto:hello@gago.in">hello@gago.in</a>
+          <a href="#">Press</a>
+          <a href="#">Stockists</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <div class="k">Origin</div>
+        <div class="v">
+          Formulated in Copenhagen<br/>
+          Manufactured in Bangalore
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="mono">© Gago 2026 · <span class="accent">Designed in Denmark · Made for India</span></span>
+      <span class="mono">v 2.0 · Pre-launch</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── Waitlist form (client-side, localStorage) ─────────────────
+  const STORAGE_KEY = 'gago_waitlist_email';
+  const COUNT_KEY = 'gago_waitlist_count';
+
+  const base = 1247;
+  let stored = parseInt(localStorage.getItem(COUNT_KEY) || '0', 10);
+  const currentCount = base + (stored > 0 ? 1 : 0);
+
+  const spotEl = document.getElementById('spot-num');
+  if (spotEl) spotEl.textContent = '#' + (currentCount + 1).toLocaleString();
+
+  function handleSubmit(formId, noteId, successId) {
+    const form = document.getElementById(formId);
+    const note = document.getElementById(noteId);
+    const success = document.getElementById(successId);
+    if (!form) return;
+
+    const existing = localStorage.getItem(STORAGE_KEY);
+    if (existing) {
+      form.style.display = 'none';
+      if (note) note.style.display = 'none';
+      if (success) success.classList.add('show');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[type=email]').value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        const input = form.querySelector('input[type=email]');
+        input.style.borderColor = '#A85839';
+        input.focus();
+        return;
+      }
+      localStorage.setItem(STORAGE_KEY, email);
+      localStorage.setItem(COUNT_KEY, '1');
+
+      form.style.display = 'none';
+      if (note) note.style.display = 'none';
+      if (success) success.classList.add('show');
+    });
+  }
+
+  handleSubmit('hero-form', 'hero-note', 'hero-success');
+  handleSubmit('final-form', 'final-note', 'final-success');
+</script>
+
+</body>
+</html>
